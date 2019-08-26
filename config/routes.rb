@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   scope module: :end_user do
     #   後で下を追加
-    #devise_for :users
+    devise_for :users
     resources :users, only: [:show, :update] do
       member do
         get :unsubscribe
@@ -28,7 +28,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     #   後で下を追加
-    #devise_for :users
+    devise_for :users
     resources :users, only: [:index, :edit, :update, :destroy]
     resources :contacts, only: [:index, :show, :update]
     resources :items, only: [:index, :create, :edit, :update, :destroy] do
