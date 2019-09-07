@@ -6,7 +6,11 @@
       </div>
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
-          <li><a><%= current_user.last_name + current_user.first_name %></a></li>
+          <div class="navbar-header">
+            <p class="navbar-brand">
+              <%= current_user.last_name + current_user.first_name %>
+            </p>
+          </div>
           <li>
             <%= link_to "商品一覧", items_path %>
           </li>
@@ -23,7 +27,9 @@
             <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
           </li>
         <% elsif admin_signed_in? %>
-          <li><a>管理者</a></li>
+          <div class="navbar-header">
+            <p class="navbar-brand">管理者</p>
+          </div>
           <li>
             <%= link_to "ユーザー一覧", admin_users_path %>
           </li>
@@ -40,7 +46,9 @@
             <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
           </li>
         <% else %>
-          <li><a>Guest</a></li>
+          <div class="navbar-header">
+            <p class="navbar-brand">Guest</p>
+          </div>
           <li>
             <%= link_to "商品一覧", items_path %>
           </li>
