@@ -36,9 +36,11 @@ class EndUser::PaymentsController < ApplicationController
       how_to_pay: params[:order],
       delivery_charge: 500,
       postal_code: shipping.postal_code,
-      prefecture: shipping.prefecture,
-      city: shipping.city,
-      building: shipping.building,
+      postcode: shipping.postcode,
+      prefecture_name: shipping.prefecture_name,
+      address_city: shipping.address_city,
+      address_street: shipping.address_street,
+      address_building: shipping.address_building,
       phone: shipping.phone,
       first_name: shipping.first_name,
       last_name: shipping.last_name,
@@ -73,7 +75,7 @@ class EndUser::PaymentsController < ApplicationController
   end
 
   def shipping_params
-    params.require(:shipping).permit(:first_name, :last_name, :first_kana_name, :last_kana_name, :postal_code, :prefecture, :city, :building, :phone)
+    params.require(:shipping).permit(:first_name, :last_name, :first_kana_name, :last_kana_name, :postal_code, :postcode, :prefecture_name, :address_city, :address_street, :address_building, :phone)
   end
 
   def calc_total_price(carts)

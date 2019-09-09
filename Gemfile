@@ -75,3 +75,4 @@ gem "cocoon"
 gem "enum_help"
 gem "ransack"
 gem "paranoia"
+gem 'jp_prefecture'

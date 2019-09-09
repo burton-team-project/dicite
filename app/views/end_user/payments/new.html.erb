@@ -17,7 +17,7 @@
     </div>
 
     <div class="shipping">
-        <%= f.select :shipping_id, current_user.shippings.collect { |p| [ p.last_name + p.first_name + "：" + p.prefecture + p.city + p.building, p.id ] }, {:prompt => "配送先を選択"} %>
+        <%= f.select :shipping_id, current_user.shippings.collect { |p| [ p.last_name + p.first_name + "：" + p.prefecture_name + p.address_city + p.address_street + p.address_building, p.id ] }, {:prompt => "配送先を選択"} %>
     </div>
 
     <%= f.submit "購入を確定する", class: "btn btn-default button-left" %>
